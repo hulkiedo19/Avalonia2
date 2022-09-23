@@ -1,0 +1,131 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:lapuh1.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="525"
+		Height="525" Width="800"
+        x:Class="lapuh1.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="lapuh1">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<!--
+	<ListBox
+		Items="{Binding Products}">
+
+		<ListBox.ItemTemplate>
+			<DataTemplate>
+				<Border
+						BorderBrush="Black"
+						BorderThickness="1"
+						Padding="10">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="50"/>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="75"/>
+						</Grid.ColumnDefinitions>
+
+						<Image
+							Grid.Column="0"
+							Source="{Binding Image}"/>
+
+						<StackPanel
+							Grid.Column="1">
+							<TextBlock
+								Text="{Binding Title}"/>
+							<TextBlock
+								Text="{Binding ArticleNumber}"/>
+							<TextBlock 
+								Text="{Binding Path=ProductType.Title}"/>
+						</StackPanel>
+
+						<StackPanel
+							Grid.Column="2">
+							<TextBlock 
+								Text="{Binding MinCostForAgent}"/>
+						</StackPanel>
+					</Grid>
+				</Border>
+			</DataTemplate>
+		</ListBox.ItemTemplate>
+		
+	</ListBox>
+	-->
+
+	<ListBox
+		Items="{Binding ProductMaterial}">
+
+		<ListBox.ItemTemplate>
+			<DataTemplate>
+				<Border
+						BorderBrush="Black"
+						BorderThickness="1"
+						Padding="10">
+					<Grid
+						Height="80">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="50"/>
+							<ColumnDefinition Width="*"/>
+							<ColumnDefinition Width="75"/>
+						</Grid.ColumnDefinitions>
+
+						<Image
+							Grid.Column="0"
+							Source="{Binding Path=Product.Image}"/>
+
+						<StackPanel
+							Grid.Column="1"
+							Orientation="Horizontal"
+							VerticalAlignment="Top"
+							Margin="0, 10, 0, 0">
+							<TextBlock 
+								Text="{Binding Product.ProductType.Title}"
+								FontSize="15"/>
+							<TextBlock 
+								Text=" | "
+								FontSize="15"/>
+							<TextBlock 
+								Text="{Binding Product.Title}"
+								FontSize="15"/>
+						</StackPanel>
+
+						<StackPanel
+							Orientation="Vertical"
+							VerticalAlignment="Bottom"
+							Margin="0, 0, 0, 10"
+							Grid.Column="1">
+							<TextBlock 
+								Text="{Binding Product.ArticleNumber}"
+								FontSize="12"/>
+							<TextBlock
+								Text="{Binding Material.Title}"
+								FontSize="12"/>
+						</StackPanel>
+						
+						<!--
+						<StackPanel
+							Grid.Column="1">
+							<TextBlock
+								Text="{Binding Path=Product.ArticleNumber}"/>
+							<TextBlock 
+								Text="{Binding Path=Material.Title}"/>
+						</StackPanel>-->
+
+						<StackPanel
+							Grid.Column="2">
+							<TextBlock
+								Text="{Binding Path=Product.MinCostForAgent}"/>
+						</StackPanel>
+					</Grid>
+				</Border>
+			</DataTemplate>
+		</ListBox.ItemTemplate>
+
+	</ListBox>
+
+</Window>
